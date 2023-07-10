@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void getWeatherData() async {
     var url =
-        'https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=2890507c01a5d0b66f6e9faa24f773c4';
+        'https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=2890507c01a5d0b66f6e9faa24f773c4&units=metric';
     Response response = await get(Uri.parse(url));
     if (response.statusCode == 200) {
       isLoading = true;
