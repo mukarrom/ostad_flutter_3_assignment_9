@@ -14,6 +14,7 @@ class WeatherApp extends StatelessWidget {
     return const MaterialApp(
       title: "Wether App",
       home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
