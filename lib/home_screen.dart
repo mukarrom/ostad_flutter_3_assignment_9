@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void getWeatherData() async {
     var url =
-        'https://api.openweathermap.org/data/2.5/weather?q=Dhaka&appid=2890507c01a5d0b66f6e9faa24f773c4';
+        'https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=2890507c01a5d0b66f6e9faa24f773c4';
     Response response = await get(Uri.parse(url));
     if (response.statusCode == 200) {
       isLoading = true;
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
       data['description'] = decodedData['weather'][0]['description'];
       isLoading = false;
       setState(() {});
-      print(data);
+      print(data['icon']);
     }
   }
 
@@ -110,9 +110,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        color: Colors.white,
+                        color: Colors.grey,
                         child: Image.network(
-                          'https://openweathermap.org/img/wn/50n@2x.png',
+                          'https://openweathermap.org/img/wn/${data['icon']}@2x.png',
                           width: 50,
                           errorBuilder: (
                             context,
